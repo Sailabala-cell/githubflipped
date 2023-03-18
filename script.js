@@ -113,9 +113,13 @@ profiles.forEach((profile) => {
     <div class="p-3 border bg-light " style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
       <div class="row align-items-center " style="font-size:12px;font-weight: 500;">
         <div class="col " style="cursor:pointer">
+<<<<<<< HEAD
           <img id="${
             profile.id
           }" class="candidateImg" src="images/profileimg.jpg" class="img-fluid rounded">
+=======
+          <img id="${profile.id}" class="candidateImg" src="images/profileimg.jpg" class="img-fluid rounded">
+>>>>>>> d86b6c61c90aed3033720acdf281e6bcd42d545d
         </div>
         <div class="col-3 " style="cursor:pointer" >
           <span >${profile.name}</span>
