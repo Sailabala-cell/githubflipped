@@ -59,6 +59,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Graphic Designer",
     rating: "90%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "3",
@@ -66,6 +67,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "4",
@@ -73,6 +75,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "5",
@@ -80,6 +83,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "6",
@@ -87,6 +91,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "7",
@@ -94,6 +99,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
   {
     id: "8",
@@ -101,6 +107,7 @@ const profiles = [
     skills: ["design", "ux", "figma", "photoshop"],
     profession: "Marketing Specialist",
     rating: "85%",
+    profileimg:"/images/profile1.png"
   },
 ];
 
@@ -113,13 +120,7 @@ profiles.forEach((profile) => {
     <div class="p-3 border bg-light " style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
       <div class="row align-items-center " style="font-size:12px;font-weight: 500;">
         <div class="col " style="cursor:pointer">
-<<<<<<< HEAD
-          <img id="${
-            profile.id
-          }" class="candidateImg" src="images/profileimg.jpg" class="img-fluid rounded">
-=======
           <img id="${profile.id}" class="candidateImg" src="images/profileimg.jpg" class="img-fluid rounded">
->>>>>>> d86b6c61c90aed3033720acdf281e6bcd42d545d
         </div>
         <div class="col-3 " style="cursor:pointer" >
           <span >${profile.name}</span>
@@ -145,25 +146,67 @@ profiles.forEach((profile) => {
   profilesContainer.appendChild(profileDiv);
 });
 
-// modal
-// Get the candidate profile image element
-document.querySelectorAll(".candidateImg").forEach((item) => {
-  item.addEventListener("click", (event) => {
-    // Get the id of the clicked image
-    const id = event.target.id;
 
-    // Open the modal
-    const modal = document.querySelector("#candidateModal");
+
+// Get all the candidate images
+const candidateImages = document.querySelectorAll(".candidateImg");
+
+// Get the modal element
+const modal = document.getElementById("candidateModal");
+
+// Get the <span> element that closes the modal
+const closeButton = document.querySelector(".close-button");
+
+// When the user clicks on a candidate image, show the modal
+candidateImages.forEach((image) => {
+  image.addEventListener("click", (event) => {
+    // Get the clicked image and its position
+    const clickedImage = event.target;
+    const imageRect = clickedImage.getBoundingClientRect();
+
+    // Get the details of the candidate from the profiles array
+    const id = clickedImage.id;
+    const clickedProfile = profiles.find(profile => profile.id == id);
+
+    // Update the modal with the details of the clicked candidate
+    const modalName = document.querySelector("#candidateModal .name");
+    const modalProfession = document.querySelector("#candidateModal .profession");
+    const modalImage = document.querySelector("#candidateModal img");
+    const modalSkills = document.querySelector("#candidateModal .skills");
+    const modalRating = document.querySelector("#candidateModal .rating");
+
+    modalName.textContent = clickedProfile.name;
+    modalProfession.textContent = clickedProfile.profession;
+    modalImage.src = clickedProfile.profileimg;
+    modalSkills.textContent = clickedProfile.skills.join(", ");
+    modalRating.textContent = clickedProfile.rating;
+
+    // Position the modal near the clicked image
+    modal.style.top = `${imageRect.top + window.pageYOffset-20}px`;
+    modal.style.left = `${imageRect.left + window.pageXOffset-320}px`;
+
+    // Show the modal
     modal.classList.add("show");
     modal.style.display = "block";
   });
 });
 
-const modal = document.querySelector("#candidateModal");
-const closeButton = modal.querySelector(".close-button");
 
-// Add event listener to close button
+
+const container = document.querySelector('.contain90')
+
 closeButton.addEventListener("click", () => {
-  modal.classList.remove("show");
-  modal.style.display = "none";
-});
+  candidateModal.style.display = "none";
+  });
+  
+  // Close the modal if the user clicks anywhere outside of it
+  window.addEventListener("click", (event) => {
+  if (event.target == container) {
+  candidateModal.style.display = "none";
+  }
+  });
+
+
+
+
+

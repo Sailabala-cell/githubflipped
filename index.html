@@ -53,7 +53,7 @@
               <div class="right-section">
                 <span class="notification"> 
                     <span class="icon-box"><i class="fa-regular fa-bell"></i></span></span>
-                <div class="profile-image"><img src="images/profileimg.jpg" alt="Profile Image"></div>
+                    <div class="profile-image"><img src="images/profileimg.jpg" alt="Profile Image"></div>
               </div>
               
          </header>  
@@ -245,10 +245,6 @@
                               </div>
                             </div>
                               
-                              
-                              
-                                
-                        
                              </div>      
                           </div>
                          </div>
@@ -265,48 +261,40 @@
                 <div class="container"  >
                     <div class="row gy-5 ">
                         <div class="thirdcontainer">
-                            <div id="profiles" class="row"></div>
+                            <div id="profiles" class="row">
+                              <!-- Modal -->
+
+
+                             
+                            
+                            
+                            </div>
+
                           </div>
                       
                     </div>
+                    
                   </div>
-              </div>
-              <div class="modal fade" id="candidateModal" tabindex="-1" role="dialog" aria-labelledby="candidateModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body p-0">
-                      <div class="row">
-                        <!-- Sidebar Content -->
-                        <div class="col-md-4 bg-light">
-                          <h5 class="p-3">Sidebar Content</h5>
-                        </div>
-                        <!-- Right Bar of Candidate Details -->
-                        <div class="col-md-8">
-                          <div class="card border-0 rounded-0">
-                            <div class="card-body">
-                              <div class="d-flex justify-content-end">
-                                <button type="button" class="close-button"  data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <h5 class="card-title">Candidate Details</h5>
-                              <p class="card-text">Name: John Doe</p>
-                              <p class="card-text">Skills: HTML, CSS, JavaScript</p>
-                              <p class="card-text">Experience: 5 years</p>
-                              <p class="card-text">Rating: 4.5/5</p>
-                            </div>
-                          </div>
-                        </div>
+                  <div class="modal" id="candidateModal">
+                    <div class="modal-content">
+                      <span class="close-button">&times;</span>
+                      <div class="modal-header">
+                        <h2 class="name"></h2>
+                        <p class="profession"></p>
+                      </div>
+                      <div class="modal-body">
+                        <img class="modal-image" src="" alt="">
+                        <p class="skills"></p>
+                        <p class="rating"></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn buttonsave1 btn-light btn-primary btn-sm">Send Message</button>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              
-         </section>
+                
+ </section>
          
-      </div>
 
      
       
